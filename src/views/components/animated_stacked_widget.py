@@ -1,66 +1,48 @@
-from PySide6.QtCore import QPropertyAnimation, QEasingCurve, QParallelAnimationGroup, Signal
-from PySide6.QtWidgets import QStackedWidget, QGraphicsOpacityEffect
+from PySide6.QtCore import QPropertyAnimation, QEasingCurve, Signal
+from PySide6.QtWidgets import QStackedWidget, QWidget, QGraphicsOpacityEffect
 
 class AnimatedStackedWidget(QStackedWidget):
-    """Um QStackedWidget que anima a transição entre widgets com um efeito de fade."""
-    
     animation_finished = Signal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.m_duration = 250  # Duração da animação em milissegundos
-        self.m_animation_group = QParallelAnimationGroup(self)
-        self.m_current_index = -1
-
-    def set_duration(self, duration: int):
-        self.m_duration = duration
+        self.duration = 250
+        self.next_index = -1
+        self.is_animating = False
+        self.animation_out = QPropertyAnimation()
+        self.animation_in = QPropertyAnimation()
 
     def setCurrentIndex(self, index: int):
-        """Define o widget atual com uma animação de fade."""
-        if self.currentIndex() == index:
+        if self.currentIndex() == index or self.is_animating:
             return
+        self.is_animating = True
+        self.next_index = index
+        previous_widget = self.currentWidget()
+        self._setup_animation(self.animation_out, previous_widget, 1.0, 0.0)
+        self.animation_out.finished.connect(self._on_fade_out_finished)
+        self.animation_out.start()
 
-        self.m_current_index = index
-        
-        # Animação de fade-out do widget antigo
-        out_anim = self._create_fade_animation(self.currentWidget(), 1.0, 0.0)
-        self.m_animation_group.addAnimation(out_anim)
+    def _on_fade_out_finished(self):
+        self.animation_out.finished.disconnect(self._on_fade_out_finished)
+        self.currentWidget().setGraphicsEffect(None)
+        super().setCurrentIndex(self.next_index)
+        next_widget = self.currentWidget()
+        self._setup_animation(self.animation_in, next_widget, 0.0, 1.0)
+        self.animation_in.finished.connect(self._on_fade_in_finished)
+        self.animation_in.start()
 
-        # Conecta o fim da animação à troca de widget e ao início do fade-in
-        self.m_animation_group.finished.connect(self._on_animation_finished)
-        self.m_animation_group.start()
+    def _on_fade_in_finished(self):
+        self.animation_in.finished.disconnect(self._on_fade_in_finished)
+        self.currentWidget().setGraphicsEffect(None)
+        self.is_animating = False
+        self.animation_finished.emit()
 
-    def _create_fade_animation(self, widget, start: float, end: float):
-        """Cria uma animação de opacidade para um dado widget."""
-        if not widget:
-            return None
-
+    def _setup_animation(self, animation: QPropertyAnimation, widget: QWidget, start: float, end: float):
         effect = QGraphicsOpacityEffect(widget)
         widget.setGraphicsEffect(effect)
-        
-        anim = QPropertyAnimation(effect, b"opacity")
-        anim.setDuration(self.m_duration)
-        anim.setEasingCurve(QEasingCurve.Type.InOutQuad)
-        anim.setStartValue(start)
-        anim.setEndValue(end)
-        
-        return anim
-
-    def _on_animation_finished(self):
-        """Slot chamado quando a animação de fade-out termina."""
-        # Desconecta o sinal para evitar chamadas recursivas
-        self.m_animation_group.finished.disconnect(self._on_animation_finished)
-        
-        # Define o widget atual (sem animação)
-        super().setCurrentIndex(self.m_current_index)
-        
-        # Limpa o grupo de animação e prepara o fade-in
-        self.m_animation_group.clear()
-        
-        # Animação de fade-in do novo widget
-        in_anim = self._create_fade_animation(self.currentWidget(), 0.0, 1.0)
-        self.m_animation_group.addAnimation(in_anim)
-        
-        # Conecta o fim da animação ao sinal público
-        self.m_animation_group.finished.connect(self.animation_finished.emit)
-        self.m_animation_group.start()
+        animation.setTargetObject(effect)
+        animation.setPropertyName(b"opacity")
+        animation.setDuration(self.duration)
+        animation.setEasingCurve(QEasingCurve.Type.InOutQuad)
+        animation.setStartValue(start)
+        animation.setEndValue(end)

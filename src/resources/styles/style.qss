@@ -1,314 +1,241 @@
-/* =============================================================================
-   MAIN STYLE - NEFRONAPP - LIGHT THEME
-   ========================================================================== */
-
-/* --- Global --- */
+/* GLOBAL STYLES */
 QWidget {
-    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    color: @text_primary;
+    background-color: @background;
     font-size: 10pt;
-    color: #303133; /* Dark Gray for text */
-    background-color: #F5F7FA; /* Lightest Gray for window background */
 }
-
-QMainWindow {
-    background-color: #F5F7FA;
-}
-
-/* --- Main Panels & Layouts --- */
 QFrame {
-    background-color: #FFFFFF;
-    border: 1px solid #E4E7EB;
-    border-radius: 6px;
-    padding: 15px;
-}
-
-QFrame#navPanel {
-    background-color: #FFFFFF;
-    border-right: 1px solid #E4E7EB;
-    border-radius: 0px;
-    padding: 8px;
-}
-
-QFrame#contentArea {
-    background-color: #F5F7FA;
     border: none;
-    padding: 0px;
-}
-
-/* --- Titles & Labels --- */
-QLabel#viewTitle {
-    font-size: 20pt;
-    font-weight: 600; /* Semibold */
-    color: #303133;
-    padding: 0 0 15px 0;
     background-color: transparent;
-    border: none;
 }
 
-/* --- Buttons --- */
+/* MAIN WINDOW & NAVIGATION */
+#navPanel {
+    background-color: @surface;
+    border-right: 1px solid @border;
+}
+#navlist {
+    border: none;
+    background-color: @surface;
+}
+#navlist::item {
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin: 4px 10px;
+    color: @text_secondary;
+    font-weight: 500;
+}
+#navlist::item:hover {
+    background-color: @surface_variant;
+}
+#navlist::item:selected {
+    background-color: @primary;
+    color: white;
+}
+#navlist::item:selected:hover {
+    background-color: @primary_variant;
+}
+.viewTitle, #viewTitle {
+    font-size: 18pt;
+    font-weight: 600;
+    color: @primary;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+/* BUTTONS */
 QPushButton {
-    background-color: #FFFFFF;
-    color: #606266; /* Medium Gray */
-    border: 1px solid #DCDFE6;
-    padding: 8px 18px;
-    border-radius: 4px;
-    min-height: 18px;
+    background-color: @surface_variant;
+    color: @text_primary;
+    border: 1px solid @border;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    min-height: 20px;
 }
 QPushButton:hover {
-    background-color: #ECF5FF;
-    color: #409EFF;
-    border-color: #C6E2FF;
+    background-color: @border;
 }
 QPushButton:pressed {
-    background-color: #409EFF;
-    color: #FFFFFF;
-    border-color: #409EFF;
+    background-color: #E0E0E0;
 }
 QPushButton:disabled {
-    background-color: #F5F7FA;
-    color: #C0C4CC;
-    border-color: #E4E7EB;
+    background-color: #F5F5F5;
+    color: #BDBDBD;
 }
-
-/* Primary Action Buttons */
-QPushButton#AnalyzeButton, QPushButton#saveButton {
-    background-color: #409EFF; /* Primary Blue */
+#AnalyzeButton, #saveButton {
+    background-color: @primary;
     color: white;
-    font-weight: 500;
     border: none;
-    padding: 10px 22px;
+    font-size: 11pt;
 }
-QPushButton#AnalyzeButton:hover, QPushButton#saveButton:hover {
-    background-color: #66B1FF;
+#AnalyzeButton:hover, #saveButton:hover {
+    background-color: @primary_variant;
 }
-QPushButton#AnalyzeButton:pressed, QPushButton#saveButton:pressed {
-    background-color: #3A8EE6;
-}
-
-/* Destructive Action Buttons */
-QPushButton#removeButton {
-    background-color: #FEF0F0;
-    color: #F56C6C; /* Danger Red */
-    border: 1px solid #FBC4C4;
-}
-QPushButton#removeButton:hover {
-    background-color: #F56C6C;
+#removeButton {
+    background-color: @error;
     color: white;
+    border: none;
 }
-QPushButton#removeButton:pressed {
-    background-color: #D95B5B;
+#removeButton:hover {
+    background-color: #B02A37;
+}
+#okButton {
+    background-color: @success;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    font-size: 9pt;
+    min-height: 16px;
 }
 
-/* --- Inputs & Combos --- */
-QLineEdit, QComboBox, QDateEdit {
-    padding: 8px 10px;
-    border: 1px solid #DCDFE6;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    min-height: 18px;
+/* INPUTS & CONTROLS */
+QLineEdit, QComboBox {
+    border: 1px solid @border;
+    padding: 8px 32px 8px 10px; /* Increased right padding for arrow */
+    border-radius: 6px;
+    background-color: @surface;
+    min-height: 20px;
 }
-QLineEdit:focus, QComboBox:focus, QDateEdit:focus {
-    border-color: #409EFF;
+QLineEdit {
+    padding: 8px 10px; /* Revert padding for line edits */
+}
+QLineEdit:focus, QComboBox:focus {
+    border: 2px solid @primary;
+    padding: 7px 31px 7px 9px;
+}
+QLineEdit:focus {
+    padding: 7px 9px;
 }
 QComboBox::drop-down {
     subcontrol-origin: padding;
     subcontrol-position: top right;
-    width: 25px;
-    border-left: 1px solid #E4E7EB;
+    width: 30px; /* Increased width for more space */
+    border-left: 1px solid @border;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 QComboBox::down-arrow {
-    image: url(none); /* Use a proper icon if available */
+    image: url(src/resources/images/down_arrow.svg);
+    width: 14px;
+    height: 14px;
 }
 
-/* --- Tables & Lists --- */
-QTableWidget, QListWidget {
-    background-color: #FFFFFF;
-    border: 1px solid #E4E7EB;
-    border-radius: 4px;
-    gridline-color: #F5F7FA;
-    alternate-background-color: #FAFCFF;
-}
-QTableWidget::item, QListWidget::item {
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #F5F7FA; /* Soft separator */
-}
-QTableWidget::item:hover, QListWidget::item:hover {
-    background-color: #ECF5FF;
-}
-QTableWidget::item:selected, QListWidget::item:selected {
-    background-color: #409EFF;
-    color: white;
-}
-
-/* Navigation List */
-QListWidget#navlist {
-    border: none;
-    background-color: transparent;
-    padding: 0;
-}
-QListWidget#navlist::item {
-    padding: 12px 15px;
-    margin: 2px 0;
-    border-radius: 4px;
-    border: none; /* No border between items */
-    color: #606266;
-}
-QListWidget#navlist::item:hover {
-    background-color: #F5F7FA;
-}
-QListWidget#navlist::item:selected {
-    background-color: #ECF5FF;
-    color: #409EFF;
-    font-weight: 600;
-}
-
-/* Table Header */
-QHeaderView {
-    border: none;
+/* TABLES & LISTS */
+QTableWidget, QTreeWidget, QListWidget {
+    border: 1px solid @border;
+    border-radius: 8px;
+    background-color: @surface;
 }
 QHeaderView::section {
-    background-color: #F5F7FA;
+    background-color: @surface_variant;
     padding: 10px;
     border: none;
-    border-bottom: 1px solid #E4E7EB;
+    border-bottom: 1px solid @border;
     font-weight: 600;
-    font-size: 9pt;
-    color: #909399; /* Light Gray for header text */
-    text-transform: uppercase;
-    min-height: 48px;
 }
+QTableWidget::item, QTreeWidget::item, QListWidget::item { padding: 8px; }
+QTableWidget::item:selected, QTreeWidget::item:selected, QListWidget::item:selected {
+    background-color: @secondary;
+    color: @primary;
+}
+QTableWidget { alternate-background-color: @background; }
 
-/* --- ScrollBar --- */
+/* SCROLLBARS */
 QScrollBar:vertical {
     border: none;
-    background: transparent;
-    width: 10px;
-    margin: 0;
+    background: @surface_variant;
+    width: 12px;
 }
 QScrollBar::handle:vertical {
-    background: #DCDFE6;
+    background: #CCCCCC;
     min-height: 25px;
-    border-radius: 5px;
-}
-QScrollBar::handle:vertical:hover {
-    background: #C0C4CC;
-}
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-    height: 0px;
-}
-
-/* --- Analysis View Specific --- */
-QFrame#PatientCard {
-    padding: 15px;
-    margin-bottom: 10px;
-}
-QLabel#MetricsLabel {
-    font-size: 11pt;
-    padding: 15px;
-    background-color: #FFFFFF;
-    border-radius: 4px;
-    border: 1px solid #E4E7EB;
-    font-weight: 500;
-}
-QLabel#SummaryLabel {
-    color: #909399;
-    font-style: italic;
-    padding-top: 5px;
-}
-QFrame#HeaderFrame {
-    padding: 15px;
-    margin-bottom: 10px;
-}
-
-/* === Patient Card Redesign === */
-
-/* Base do Card */
-QFrame[objectName^="PatientCard"] {
-    padding: 0;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #E4E7EB;
-    background-color: #FFFFFF;
-}
-
-/* Borda Esquerda Colorida por Status */
-QFrame#PatientCard-Em-dia {
-    border-left: 5px solid #67C23A; /* Verde Sucesso */
-}
-QFrame#PatientCard-Pendente {
-    border-left: 5px solid #E6A23C; /* Laranja Alerta */
-}
-QFrame#PatientCard-Internado {
-    border-left: 5px solid #F56C6C; /* Vermelho Perigo */
-}
-
-/* Rótulos de Status */
-QLabel[objectName^="StatusLabel"] {
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 4px;
-}
-QLabel#StatusLabel-Em-dia {
-    color: #67C23A;
-    background-color: #f0f9eb;
-}
-QLabel#StatusLabel-Pendente {
-    color: #E6A23C;
-    background-color: #fdf6ec;
-}
-QLabel#StatusLabel-Internado {
-    color: #F56C6C;
-    background-color: #fef0f0;
-}
-
-/* Botão de Ação "OK" */
-QPushButton#okButton {
-    background-color: #ECF5FF;
-    color: #409EFF;
-    border: 1px solid #C6E2FF;
-    font-weight: 600;
-    padding: 4px 8px;
-}
-QPushButton#okButton:hover {
-    background-color: #409EFF;
-    color: white;
-}
-
-/* === Notification Banner === */
-QFrame#NotificationBanner {
-    background-color: #303133; /* Fundo escuro padrão */
-    color: #FFFFFF;
     border-radius: 6px;
-    border: 1px solid #424345;
-    min-width: 300px;
-    max-width: 500px;
 }
+QScrollBar::add-line, QScrollBar::sub-line { height: 0px; }
 
-QFrame#NotificationBanner QLabel {
-    color: #FFFFFF;
-    background-color: transparent;
+/* ANALYSIS VIEW 4.0 */
+#HeaderFrame, #ResultsFrame {
+    background-color: @surface;
+    border-radius: 8px;
+    border: 1px solid @border;
+}
+#UploadFrame {
+    background-color: @surface_variant;
+    border-radius: 6px;
+    padding: 10px;
+}
+#ExamesFileLabel, #MovFileLabel, #InternacoesFileLabel {
+    background-color: @surface;
+    color: @text_secondary;
+    border: 1px solid @border;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-style: italic;
+}
+#MetricsPanel {
+    padding: 10px;
+    background-color: @surface_variant;
+    border-radius: 8px;
+}
+#MetricCard {
+    background-color: @surface;
+    border-radius: 6px;
+    padding: 8px;
+}
+#MetricValue {
+    font-size: 18pt;
+    font-weight: 600;
+    color: @primary;
+}
+#MetricTitle {
+    font-size: 9pt;
+    font-weight: 600;
+    color: @text_secondary;
+}
+QFrame[objectName^="PatientCard"] {
+    background-color: @surface;
+    border: 1px solid @border;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+#CardHeader {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 8px 15px;
+}
+#CardHeader QLabel {
+    color: white;
+    font-size: 11pt;
+    font-weight: 600;
+}
+#CardIcon {
+    font-size: 14pt;
+    padding-right: 8px;
+}
+#CardBody { padding: 10px 15px; }
+QFrame[objectName="PatientCard-Em-dia"] #CardHeader { background-color: #28a745; }
+QFrame[objectName="PatientCard-Pendente"] #CardHeader { background-color: #fd7e14; }
+QFrame[objectName="PatientCard-Pendência-de-Coleta"] #CardHeader { background-color: #ffc107; }
+QFrame[objectName="PatientCard-Internado"] #CardHeader { background-color: #6c757d; }
+QFrame[objectName="PatientCard-Pendência-de-Coleta"] #CardHeader QLabel { color: @text_primary; }
+#PatientStatusLabel {
+    font-size: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#SummaryLabel {
+    color: @text_secondary;
+    font-style: italic;
+    padding: 5px 0;
+}
+CollapsibleSection > QPushButton {
     border: none;
+    background-color: @surface_variant;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: left;
 }
-
-/* Tipos de Notificação */
-QFrame#NotificationBanner[notification_type="success"] {
-    background-color: #67C23A; /* Verde */
-    border-color: #85ce61;
-}
-
-QFrame#NotificationBanner[notification_type="info"] {
-    background-color: #409EFF; /* Azul */
-    border-color: #66b1ff;
-}
-
-QFrame#NotificationBanner[notification_type="warning"] {
-    background-color: #E6A23C; /* Laranja */
-    border-color: #ebb563;
-}
-
-QFrame#NotificationBanner[notification_type="error"] {
-    background-color: #F56C6C; /* Vermelho */
-    border-color: #f78989;
-}
-

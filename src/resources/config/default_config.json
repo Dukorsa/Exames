@@ -1,0 +1,230 @@
+{
+  "clinicas": [
+    "Clinica do Rim",
+    "Instituto do Rim",
+    "Renal Clínica",
+    "Hospital do Rim",
+    "Nefron Clínica",
+    "CNN"
+  ],
+  "exames": {
+    "25-Hidroxivitamina D": {"aliases": ["Vit. D"]},
+    "Albumina": {"aliases": ["Alb"]},
+    "Aluminio Serico": {"aliases": ["Al"]},
+    "Anti-HBs": {"aliases": ["A HBs"]},
+    "Anti-HCV": {"aliases": ["A HCV"]},
+    "Anti-HIV": {"aliases": ["A HIV"]},
+    "Ca x P": {"aliases": ["Ca x P"]},
+    "Calcio": {"aliases": ["Ca"]},
+    "Calcio Corrigido pela Albumina": {"aliases": ["Calcio Corrigido pela Albumina"]},
+    "Capacidade Total Ligacao Ferro": {"aliases": ["CTLF"]},
+    "Clearence de Creatinina": {"aliases": ["Clearance de Creatinina"]},
+    "Colesterol HDL": {"aliases": ["HDL"]},
+    "Colesterol LDL": {"aliases": ["LDL"]},
+    "Colesterol Total": {"aliases": ["COL"]},
+    "Colesterol VLDL": {"aliases": ["VLDL"]},
+    "Creatinina": {"aliases": ["CR"]},
+    "Ferritina": {"aliases": ["Ferrit"]},
+    "Ferro Serico": {"aliases": ["Ferro"]},
+    "Fosfatase Alcalina": {"aliases": ["Fosf Alc"]},
+    "Fosforo": {"aliases": ["P"]},
+    "Glicose": {"aliases": ["Glic"]},
+    "Globulina": {"aliases": ["Glob"]},
+    "Grupo Sanguineo": {"aliases": ["ABORh"]},
+    "HbsAg": {"aliases": ["HbsAg"]},
+    "Hemacias": {"aliases": ["Hemacias"]},
+    "Hematocrito": {"aliases": ["HT"]},
+    "Hemoglobina": {"aliases": ["HB"]},
+    "Hemoglobina Glicada": {"aliases": ["HB-Gli"]},
+    "Hemograma": {"aliases": ["Hemograma"]},
+    "Kt/V": {"aliases": ["Kt/V"]},
+    "Kt/V Equilibrado": {"aliases": ["eKt/V"]},
+    "Kt/V Standard": {"aliases": ["stdKt/V"]},
+    "Leucocitos": {"aliases": ["Leucocitos"]},
+    "PNA": {"aliases": ["PNA"]},
+    "PCRn SP": {"aliases": ["PCRn SP"]},
+    "PTH": {"aliases": ["PTH"]},
+    "Plaquetas": {"aliases": ["Plaquetas"]},
+    "Potassio": {"aliases": ["K"]},
+    "Proteinas Totais": {"aliases": ["Prot T"]},
+    "Saturaçao da Transferrina": {"aliases": ["Sat Transf"]},
+    "Sodio": {"aliases": ["Na"]},
+    "T4 Livre": {"aliases": ["T4"]},
+    "TFG": {"aliases": ["TFG"]},
+    "TGP": {"aliases": ["TGP"]},
+    "TSH": {"aliases": ["TSH"]},
+    "TAC Ureia SP": {"aliases": ["TAC Ureia SP"]},
+    "Triglicerideos": {"aliases": ["Trigl."]},
+    "URR": {"aliases": ["URR"]},
+    "Ureia": {"aliases": ["UR"]},
+    "Ureia Pós": {"aliases": ["UR Pós"]}
+  },
+  "rotinas": {
+    "Padrão": {
+      "25-Hidroxivitamina D": [
+        {"Período": "Sempre", "Frequência": "Semestral", "Tipo": "Obrigatório"}
+      ],
+      "Albumina": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Aluminio Serico": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "Anti-HBs": [
+        {"Período": "Sempre", "Frequência": "Semestral", "Tipo": "Obrigatório"}
+      ],
+      "Anti-HCV": [
+        {"Período": "Sempre", "Frequência": "Semestral", "Tipo": "Obrigatório"}
+      ],
+      "Anti-HIV": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "Ca x P": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Calcio": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ],
+      "Calcio Corrigido pela Albumina": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Capacidade Total Ligacao Ferro": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Clearence de Creatinina": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Opcional"}
+      ],
+      "Colesterol HDL": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "Colesterol LDL": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "Colesterol Total": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "Colesterol VLDL": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "Creatinina": [
+        {"Período": "Primeiro Ano", "Frequência": "Mensal", "Tipo": "Obrigatório"},
+        {"Período": "Após Primeiro Ano", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "Ferritina": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Ferro Serico": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Fosfatase Alcalina": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Fosforo": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ],
+      "Glicose": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "Globulina": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Grupo Sanguineo": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "HbsAg": [
+        {"Período": "Sempre", "Frequência": "Semestral", "Tipo": "Obrigatório"}
+      ],
+      "Hemacias": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Hematocrito": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ],
+      "Hemoglobina": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ],
+      "Hemoglobina Glicada": [
+        {"Período": "Sempre", "Frequência": "Semestral", "Tipo": "Opcional"}
+      ],
+      "Hemograma": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Opcional"}
+      ],
+      "Kt/V": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Kt/V Equilibrado": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Kt/V Standard": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Leucocitos": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "PNA": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "PCRn SP": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "PTH": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Plaquetas": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Potassio": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ],
+      "Proteinas Totais": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Saturaçao da Transferrina": [
+        {"Período": "Sempre", "Frequência": "Trimestral", "Tipo": "Obrigatório"}
+      ],
+      "Sodio": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ],
+      "T4 Livre": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "TFG": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "TGP": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ],
+      "TSH": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "TAC Ureia SP": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Triglicerideos": [
+        {"Período": "Sempre", "Frequência": "Anual", "Tipo": "Obrigatório"}
+      ],
+      "URR": [
+        {"Período": "Sempre", "Frequência": "Não Cobra", "Tipo": "Opcional"}
+      ],
+      "Ureia": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ],
+      "Ureia Pós": [
+        {"Período": "Sempre", "Frequência": "Mensal", "Tipo": "Obrigatório"}
+      ]
+    }
+  },
+  "perfis": {
+    "Padrão": {
+      "rotina": "Padrão",
+      "clinicas": [
+        "Clinica do Rim",
+        "Instituto do Rim",
+        "Renal Clínica",
+        "Hospital do Rim",
+        "Nefron Clínica",
+        "CNN"
+      ]
+    }
+  }
+}
